@@ -1,15 +1,8 @@
 import React from 'react'
-import MyFooter from './MyFooter'
-import MyContent from './MyContent'
-import MyHeader from './MyHeader'
 
 function App() {
     return (
-        <>
-        <MyHeader />
-        <MyContent />
-        <MyFooter />
-        </>
+        <h1 className="header">This is my header</h1>
     )
 }
 

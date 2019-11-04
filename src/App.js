@@ -1,11 +1,9 @@
 import React from 'react'
+import ContactList from './ContactList'
 
 function App() {
-    const firstName = 'Max'
-    const lastName = 'Proske'
-    const isMorning = (new Date()).getHours() < 12;
     return (
-        <h1 className="header">Good {(isMorning) ? 'morning,' : 'night'}, {`${firstName} ${lastName}`}</h1>
+        <ContactList />
     )
 }
 

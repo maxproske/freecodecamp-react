@@ -1,8 +1,11 @@
 import React from 'react'
 
 function App() {
+    const firstName = 'Max'
+    const lastName = 'Proske'
+    const isMorning = (new Date()).getHours() < 12;
     return (
-        <h1 className="header">This is my header</h1>
+        <h1 className="header">Good {(isMorning) ? 'morning,' : 'night'}, {`${firstName} ${lastName}`}</h1>
     )
 }
 

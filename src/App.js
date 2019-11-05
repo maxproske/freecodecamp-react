@@ -1,16 +1,16 @@
 import React from 'react'
 import Joke from './Joke'
+import jokesData from './jokesData'
 
 function App() {
+    const jokeComponents = jokesData.map(joke => <Joke 
+        key={joke.id} 
+        question={joke.question} 
+        punchLine={joke.punchLine} />)
+    console.log(jokeComponents)
     return (
         <div>
-            <Joke 
-                question="Time flies like an arrow." 
-                punchLine="Fruit flies like a banana." 
-            />
-            <Joke 
-                punchLine="One-liner." 
-            />
+            {jokeComponents}
         </div>
     )
 }

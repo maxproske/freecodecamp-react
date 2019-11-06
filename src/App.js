@@ -1,16 +1,13 @@
 import React from 'react'
-import Joke from './Joke'
-import jokesData from './jokesData'
+import TodoItem from './TodoItem'
+import todosData from './todosData'
 
 function App() {
-    const jokeComponents = jokesData.map(joke => <Joke 
-        key={joke.id} 
-        question={joke.question} 
-        punchLine={joke.punchLine} />)
-    console.log(jokeComponents)
+    const todoComponents = todosData.map(item => <TodoItem key={item.id} item={item} />)
+
     return (
-        <div>
-            {jokeComponents}
+        <div className="todo-list">
+            {todoComponents}
         </div>
     )
 }

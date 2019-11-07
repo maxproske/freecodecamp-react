@@ -4,15 +4,16 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            answer: "Yes"
+            name: 'Max',
+            age: 24
         }
     }
 
     render() {
         return (
             <div>
-                <h1>Is state important to know?</h1>
-                <p>{this.state.answer}</p>
+                <h1>{this.state.name}</h1>
+                <h3>{this.state.age} years old</h3>
             </div>
         )
     }

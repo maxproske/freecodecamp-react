@@ -1,28 +1,17 @@
-import React, {Component} from 'react'
-import TodoItem from './TodoItem'
-import todosData from './todosData'
+import React from 'react'
 
-class App extends Component {
-    constructor() {
-        super()
-        this.state = {
-            todosData: todosData
-        }
-    }
-
-    getTodoComponents() {
-        return todosData.map(item => <TodoItem key={item.id} item={item} />)
-    }
-
-    render() {
-        const todoComponents = this.getTodoComponents()
-
-        return (
-            <div className="todo-list">
-                {todoComponents}
-            </div>
-        )
-    }
+function App() {
+    return (
+        <div>
+            <figure>
+                <img src="https://www.fillmurray.com/200/100"
+                    onClick={() => console.log("I was clicked!")}  
+                    onMouseOver={() => console.log("I was moused over!")}  
+                />
+                <figcaption>Click me!</figcaption>
+            </figure>
+        </div>
+    )
 }
 
 export default App

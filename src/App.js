@@ -1,19 +1,21 @@
 import React, {Component} from 'react'
 
-class App extends Component {
+class App extends Component  {
     constructor() {
         super()
         this.state = {
-            name: 'Max',
-            age: 24
+            isLoggedIn: true
         }
     }
 
     render() {
+        const status = this.state.isLoggedIn ? "in" : "out"
+        const styles = {
+            color: this.state.isLoggedIn ? "green" : "red"
+        }
         return (
-            <div>
-                <h1>{this.state.name}</h1>
-                <h3>{this.state.age} years old</h3>
+            <div className="logged-in">
+                <h1 style={styles}>{`You are currently logged ${status}`}</h1>
             </div>
         )
     }

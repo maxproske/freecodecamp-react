@@ -1,28 +1,41 @@
 import React, {Component} from 'react'
+import TodoItem from './TodoItem'
+import todosData from './todosData'
 
 class App extends Component {
     constructor() {
         super()
         this.state = {
-            count: 0
+            todosData: todosData
         }
 
-        this.change = this.change.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    change() {
+    getTodoComponents() {
+        return todosData.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange} />)
+    }
+
+    handleChange(id) {
         this.setState((prevState) => {
-            return { 
-                count: prevState.count+1 
+            const updatedTodo = prevState.todosData.map((todo) => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed
+                }
+                return todo
+            })
+            return {
+                todosData: updatedTodo
             }
         })
     }
 
     render() {
+        const todoComponents = this.getTodoComponents()
+
         return (
-            <div>
-                <h1>{this.state.count}</h1>
-                <button onClick={this.change}>Change!</button>
+            <div className="todo-list">
+                {todoComponents}
             </div>
         )
     }

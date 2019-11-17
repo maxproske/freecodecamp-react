@@ -20,7 +20,11 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Conditional isLoading={this.state.isLoading} />
+            {
+                (this.state.isLoading) ? 
+                <p>Loading...</p> :
+                <Conditional />
+            }
             </div>
         )
     }

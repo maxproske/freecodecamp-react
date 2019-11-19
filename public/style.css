@@ -1,4 +1,4 @@
-input:checked + label {
-    text-decoration: line-through;
-    color: grey;
+img {
+    max-width: 10rem;
+    height: auto;
 }

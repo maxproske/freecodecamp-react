@@ -5,31 +5,41 @@ class App extends Component {
         super()
 
         this.state = {
-            isLoading: false,
-            character: {}
+            firstName: '',
+            lastName: ''
         }
+
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    componentDidMount() {
+    handleChange(event) {
+        const {name, value} = event.target;
         this.setState({
-            isLoading: true
+            [name]: value 
         })
-
-        fetch("https://swapi.co/api/people/1")
-            .then((response) => response.json())
-            .then((data) => {
-                this.setState({
-                    isLoading: false,
-                    character: data
-                })
-            })
     }
 
     render() {
-        const characterName = this.state.isLoading ? "Loading..." : this.state.character.name
         return (
             <div>
-                {characterName}
+                <h1>Hi, {this.state.firstName} {this.state.lastName}</h1>
+                <form>
+                    <input 
+                        onChange={this.handleChange} 
+                        name="firstName" 
+                        placeholder="First Name"
+                        value={this.state.firstName}
+                    />
+                    <br />
+                    <input 
+                        onChange={this.handleChange} 
+                        name="lastName" 
+                        placeholder="Last Name"
+                        value={this.state.lastName} 
+                    />
+                    <br />
+                    <input type="submit" value="Submit" />
+                </form>
             </div>
         )
     }

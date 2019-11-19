@@ -6,23 +6,26 @@ class App extends Component {
 
         this.state = {
             firstName: '',
-            lastName: ''
+            lastName: '',
+            isFriendly: false,
+            carType: ''
         }
 
         this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(event) {
+
         const {name, value} = event.target;
-        this.setState({
-            [name]: value 
-        })
+
+        this.setState({[name]: value})
     }
 
     render() {
         return (
             <div>
                 <h1>Hi, {this.state.firstName} {this.state.lastName}</h1>
+                <h2>You drive a {this.state.carType}</h2>
                 <form>
                     <input 
                         onChange={this.handleChange} 
@@ -37,6 +40,11 @@ class App extends Component {
                         placeholder="Last Name"
                         value={this.state.lastName} 
                     />
+                    <br />
+                    <select name="carType" onChange={this.handleChange} >
+                        <option value="volvo">Volvo</option>
+                        <option value="bmw">BMW</option>
+                    </select>
                     <br />
                     <input type="submit" value="Submit" />
                 </form>
